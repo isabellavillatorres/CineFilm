@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineFilm | Seu universo de filmes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">🎬 Cine<span>Film</span></a>
+
+            <div class="links">
+                <a href="#inicio">Início</a>
+                <a href="#catalogo">Catálogo</a>
+                <a href="#favoritos">Favoritos</a>
+                <a href="#cadastro">Adicionar filme</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- BANNER PRINCIPAL -->
+
+        <section id="inicio" class="banner">
+            <div class="banner-conteudo">
+                <span class="banner-tag">SEU UNIVERSO DE CINEMA</span>
+
+                <h1>Todo filme merece<br>um lugar na sua história.</h1>
+
+                <p>
+                    Descubra, organize e acompanhe seus filmes favoritos
+                    em um só lugar.
+                </p>
+
+                <a href="#catalogo" class="botao-banner">
+                    Explorar catálogo
+                </a>
+            </div>
+
+            <div class="banner-decoracao">
+                <span>✦</span>
+                <span>✧</span>
+                <span>🎬</span>
+            </div>
+        </section>
+
+        <!-- ESTATÍSTICAS -->
+
+        <section class="estatisticas">
+            <div class="estatistica">
+                <span class="icone-estatistica roxo">🎞</span>
+                <p>Total de filmes</p>
+                <h2 id="total-filmes">0</h2>
+            </div>
+
+            <div class="estatistica">
+                <span class="icone-estatistica rosa">✓</span>
+                <p>Filmes assistidos</p>
+                <h2 id="total-assistidos">0</h2>
+            </div>
+
+            <div class="estatistica">
+                <span class="icone-estatistica azul">⭐</span>
+                <p>Média das notas</p>
+                <h2 id="media-notas">0.0</h2>
+            </div>
+
+            <div class="estatistica">
+                <span class="icone-estatistica amarelo">♥</span>
+                <p>Favoritos</p>
+                <h2 id="total-favoritos">0</h2>
+            </div>
+        </section>
+
+        <!-- PROGRESSO -->
+
+        <section class="progresso">
+            <div class="progresso-topo">
+                <div>
+                    <p class="subtitulo">SUA JORNADA</p>
+                    <h2>Meu progresso</h2>
+                </div>
+
+                <span id="porcentagem">0%</span>
+            </div>
+
+            <div class="barra-fundo">
+                <div id="barra-progresso" class="barra-preenchida"></div>
+            </div>
+
+            <p id="texto-progresso">Você ainda não começou sua jornada!</p>
+        </section>
+
+        <!-- ESCOLHA DO DIA -->
+
+        <section class="escolha-dia">
+            <div>
+                <p class="subtitulo">RECOMENDAÇÃO ESPECIAL</p>
+                <h2>✨ Escolha do dia</h2>
+                <p>Uma sugestão especial da sua coleção.</p>
+            </div>
+
+            <div id="filme-destaque" class="destaque-filme"></div>
+        </section>
+
+        <!-- CATEGORIAS -->
+
+        <section class="categorias">
+            <p class="subtitulo">EXPLORE POR GÊNERO</p>
+            <h2>Encontre seu próximo filme</h2>
+
+            <div class="lista-categorias">
+                <button class="categoria ativa" data-genero="">Todos</button>
+                <button class="categoria" data-genero="Ação">⚡ Ação</button>
+                <button class="categoria" data-genero="Comédia">😂 Comédia</button>
+                <button class="categoria" data-genero="Drama">🎭 Drama</button>
+                <button class="categoria" data-genero="Fantasia">✨ Fantasia</button>
+                <button class="categoria" data-genero="Terror">👻 Terror</button>
+                <button class="categoria" data-genero="Romance">💗 Romance</button>
+                <button class="categoria" data-genero="Ficção científica">🚀 Ficção científica</button>
+            </div>
+        </section>
+
+        <!-- CATÁLOGO -->
+
+        <section id="catalogo" class="catalogo">
+            <div class="titulo-secao">
+                <div>
+                    <p class="subtitulo">SUA COLEÇÃO</p>
+                    <h2>Meu catálogo</h2>
+                </div>
+            </div>
+
+            <div class="filtros">
+                <input
+                    type="text"
+                    id="busca"
+                    placeholder="🔎 Buscar filme..."
+                    aria-label="Buscar filme"
+                >
+
+                <select id="filtro-genero" aria-label="Filtrar por gênero">
+                    <option value="">Todos os gêneros</option>
+                    <option value="Ação">Ação</option>
+                    <option value="Comédia">Comédia</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Fantasia">Fantasia</option>
+                    <option value="Terror">Terror</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Ficção científica">Ficção científica</option>
+                </select>
+
+                <select id="filtro-status" aria-label="Filtrar por status">
+                    <option value="">Todos os status</option>
+                    <option value="Assistido">Assistidos</option>
+                    <option value="Quero assistir">Quero assistir</option>
+                </select>
+
+                <button id="botao-favoritos" class="botao-favoritos">
+                    ♥ Favoritos
+                </button>
+            </div>
+
+            <div id="lista-filmes" class="lista-filmes"></div>
+
+            <p id="lista-vazia" class="lista-vazia">
+                Nenhum filme encontrado.
+            </p>
+        </section>
+
+        <!-- FAVORITOS -->
+
+        <section id="favoritos" class="secao-favoritos">
+            <p class="subtitulo">SEUS QUERIDINHOS</p>
+            <h2>♥ Meus favoritos</h2>
+            <p>Os filmes que ganharam um lugar especial.</p>
+
+            <div id="lista-favoritos" class="lista-favoritos"></div>
+
+            <p id="favoritos-vazios" class="lista-vazia">
+                Você ainda não adicionou favoritos.
+            </p>
+        </section>
+
+        <!-- CADASTRO -->
+
+        <section id="cadastro" class="cadastro">
+            <div class="titulo-secao">
+                <div>
+                    <p class="subtitulo">NOVA DESCOBERTA</p>
+                    <h2>Adicionar filme</h2>
+                </div>
+
+                <span class="icone-cadastro">🎬</span>
+            </div>
+
+            <form id="form-filme" novalidate>
+
+                <div class="campo">
+                    <label for="titulo">Nome do filme</label>
+                    <input
+                        type="text"
+                        id="titulo"
+                        placeholder="Ex: Interestelar"
+                    >
+                    <span class="erro" id="erro-titulo"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="genero">Gênero</label>
+                    <select id="genero">
+                        <option value="">Selecione um gênero</option>
+                        <option value="Ação">Ação</option>
+                        <option value="Comédia">Comédia</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Fantasia">Fantasia</option>
+                        <option value="Terror">Terror</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Ficção científica">Ficção científica</option>
+                    </select>
+                    <span class="erro" id="erro-genero"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="nota">Nota (0 a 10)</label>
+                    <input
+                        type="number"
+                        id="nota"
+                        placeholder="Ex: 9"
+                        min="0"
+                        max="10"
+                        step="0.1"
+                    >
+                    <span class="erro" id="erro-nota"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="status">Status</label>
+                    <select id="status">
+                        <option value="">Selecione o status</option>
+                        <option value="Assistido">Assistido</option>
+                        <option value="Quero assistir">Quero assistir</option>
+                    </select>
+                    <span class="erro" id="erro-status"></span>
+                </div>
+
+                <button type="submit" class="botao-adicionar">
+                    + Adicionar à minha coleção
+                </button>
+
+                <p id="mensagem-sucesso" class="mensagem-sucesso"></p>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <a href="#" class="logo">Cine<span>Film</span></a>
+        <p>Feito para quem ama cinema. ✨</p>
+        <p>© 2026 CineFilm</p>
+    </footer>
+
+</body>
+</html>
